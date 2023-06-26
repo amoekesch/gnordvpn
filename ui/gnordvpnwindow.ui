@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0"/>
+    <requires lib="Adw" version="1.0"/>
+    <template class="GNordVPNWindow" parent="AdwApplicationWindow">
+        <property name="title">GNordVPN</property>
+        <property name="default-width">750</property>
+        <property name="width-request">750</property>
+        <child>
+            <object class="AdwToastOverlay" id="toast_overlay">
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="margin-bottom">50</property>
+                        <!-- Header/Title Bar -->
+                        <child>
+                            <object class="AdwHeaderBar" id="header_bar">
+                                <!-- View Switcher -->
+                                <property name="title-widget">
+                                    <object class="AdwViewSwitcherTitle" id="view_switcher">
+                                        <property name="stack">view_stack</property>
+                                        <property name="title">GNordVPN</property>
+                                    </object>
+                                </property>
+                                <child type="end">
+                                    <object class="GtkMenuButton">
+                                        <property name="icon-name">open-menu-symbolic</property>
+                                        <property name="menu-model">primary_menu</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+
+                        <!-- Stack of Pages/Dialogs -->
+                        <child>
+                            <object class="AdwViewStack" id="view_stack">
+                                <property name="vexpand">True</property>
+
+                                <!-- Status Page -->
+                                <child>
+                                    <object class="AdwViewStackPage" id="page_status">
+                                        <property name="name">page_status</property>
+                                        <property name="title">Status</property>
+                                        <property name="icon-name">insert-link-symbolic</property>
+                                        <property name="child">
+                                            <object class="GtkBox">
+                                                <property name="orientation">vertical</property>
+                                                <!-- Status Clamp -->
+                                                <child>
+                                                    <object class="AdwClamp" id="clamp_status">
+                                                        <property name="maximum-size">800</property>
+                                                        <property name="tightening-threshold">500</property>
+                                                        <property name="margin-start">80</property>
+                                                        <property name="margin-end">80</property>
+                                                        <property name="margin-top">50</property>
+                                                        <property name="margin-bottom">50</property>
+                                                        <child>
+                                                            <!-- List Box -->
+                                                            <object class="GtkListBox">
+                                                                <property name="selection-mode">none</property>
+                                                                <style>
+                                                                    <class name="boxed-list"/>
+                                                                </style>
+
+                                                                <!-- Status Row -->
+                                                                <child>
+                                                                    <object class="AdwActionRow" id="ar_status">
+                                                                        <property name="title">Disconnected</property>
+                                                                        <property name="subtitle">Your current connection is not secure.</property>
+                                                                        <child type="prefix">
+                                                                            <object class="GtkImage" id="img_status">
+                                                                                <property name="margin-start">10</property>
+                                                                                <property name="margin-end">10</property>
+                                                                                <property name="margin-top">10</property>
+                                                                                <property name="margin-bottom">10</property>
+                                                                            </object>
+                                                                        </child>
+                                                                    </object>
+                                                                </child>
+
+                                                                <!-- Host Row -->
+                                                                <child>
+                                                                    <object class="AdwActionRow" id="ar_host">
+                                                                        <property name="title">Host</property>
+                                                                        <property name="subtitle">The connected VPN server.</property>
+                                                                        <child type="prefix">
+                                                                            <object class="GtkImage" id="img_host">
+                                                                                <property name="margin-start">10</property>
+                                                                                <property name="margin-end">10</property>
+                                                                                <property name="margin-top">10</property>
+                                                                                <property name="margin-bottom">10</property>
+                                                                            </object>
+                                                                        </child>
+                                                                    </object>
+                                                                </child>
+
+                                                                <!-- Uploaded Row -->
+                                                                <child>
+                                                                    <object class="AdwActionRow" id="ar_uploaded">
+                                                                        <property name="title">Data Uploaded</property>
+                                                                        <property name="subtitle">The amount of data uploaded.</property>
+                                                                        <child type="prefix">
+                                                                            <object class="GtkImage" id="img_uploaded">
+                                                                                <property name="margin-start">10</property>
+                                                                                <property name="margin-end">10</property>
+                                                                                <property name="margin-top">10</property>
+                                                                                <property name="margin-bottom">10</property>
+                                                                            </object>
+                                                                        </child>
+                                                                    </object>
+                                                                </child>
+
+                                                                <!-- Downloaded Row -->
+                                                                <child>
+                                                                    <object class="AdwActionRow" id="ar_downloaded">
+                                                                        <property name="title">Data Received</property>
+                                                                        <property name="subtitle">The amount of data downloaded.</property>
+                                                                        <child type="prefix">
+                                                                            <object class="GtkImage" id="img_downloaded">
+                                                                                <property name="margin-start">10</property>
+                                                                                <property name="margin-end">10</property>
+                                                                                <property name="margin-top">10</property>
+                                                                                <property name="margin-bottom">10</property>
+                                                                            </object>
+                                                                        </child>
+                                                                    </object>
+                                                                </child>
+
+                                                                <!-- Uptime Row -->
+                                                                <child>
+                                                                    <object class="AdwActionRow" id="ar_uptime">
+                                                                        <property name="title">Uptime</property>
+                                                                        <property name="subtitle">The total time you have been connected.</property>
+                                                                        <child type="prefix">
+                                                                            <object class="GtkImage" id="img_uptime">
+                                                                                <property name="margin-start">10</property>
+                                                                                <property name="margin-end">10</property>
+                                                                                <property name="margin-top">10</property>
+                                                                                <property name="margin-bottom">10</property>
+                                                                            </object>
+                                                                        </child>
+                                                                    </object>
+                                                                </child>
+
+                                                            </object> <!-- ListBox -->
+                                                        </child>
+                                                    </object> <!-- clamp -->
+                                                </child>
+                                                <!-- Connect/Disconnect Button Box -->
+                                                <child>
+                                                    <object class="GtkBox">
+                                                        <property name="homogeneous">false</property>
+                                                        <property name="orientation">horizontal</property>
+                                                        <property name="halign">center</property>
+                                                        <child>
+                                                            <!-- Connect Button -->
+                                                            <object class="GtkButton" id="btn_connect">
+                                                                <property name="width-request">300</property>
+                                                                <property name="hexpand">false</property>
+                                                                <property name="halign">center</property>
+                                                                <style>
+                                                                    <class name="pill"/>
+                                                                </style>
+                                                                <child>
+                                                                    <object class="GtkBox">
+                                                                        <property name="homogeneous">False</property>
+                                                                        <property name="orientation">horizontal</property>
+                                                                        <child>
+                                                                            <object class="GtkSpinner" id="btn_connect_spinner">
+                                                                                <property name="spinning">false</property>
+                                                                            </object>
+                                                                        </child>
+                                                                        <child>
+                                                                            <object class="GtkLabel" id="btn_connect_label">
+                                                                                <property name="label">Connect</property>
+                                                                                <property name="hexpand">true</property>
+                                                                            </object>
+                                                                        </child>
+                                                                    </object>
+                                                                </child>
+                                                            </object>
+                                                        </child>
+
+                                                        <child>
+                                                            <!-- Login Button -->
+                                                            <object class="GtkLinkButton" id="btn_login">
+                                                                <property name="width-request">200</property>
+                                                                <property name="hexpand">false</property>
+                                                                <property name="halign">center</property>
+                                                                <property name="label">Login</property>
+                                                                <property name="visible">false</property>
+                                                            </object>
+                                                        </child>
+                                                    </object> <!-- Button Box -->
+                                                </child>
+                                            </object>
+                                        </property>
+                                    </object>
+                                </child>
+
+                                <!-- Groups Page -->
+                                <child>
+                                    <object class="AdwViewStackPage" id="page_categories">
+                                        <property name="name">page_categories</property>
+                                        <property name="title">Groups</property>
+                                        <property name="icon-name">view-grid-symbolic</property>
+                                        <property name="child">
+                                            <object class="GtkBox">
+                                                <property name="orientation">vertical</property>
+                                                <child>
+                                                    <object class="AdwClamp" id="clamp_categories">
+                                                        <property name="maximum-size">800</property>
+                                                        <property name="tightening-threshold">500</property>
+                                                        <property name="margin-start">80</property>
+                                                        <property name="margin-end">80</property>
+                                                        <property name="margin-top">50</property>
+                                                        <property name="margin-bottom">0</property>
+                                                        <child>
+                                                            <!-- List Box -->
+                                                            <object class="GtkScrolledWindow">
+                                                                <child>
+                                                                    <object class="GtkListBox" id="list_categories">
+                                                                        <property name="vexpand">true</property>
+                                                                        <property name="selection-mode">none</property>
+                                                                        <style>
+                                                                            <class name="boxed-list"/>
+                                                                        </style>
+                                                                        <!-- children will be added programmatically -->
+                                                                    </object>
+                                                                </child>
+                                                            </object>
+                                                        </child>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </property>
+                                    </object>
+                                </child>
+
+                                <!-- Countries Page -->
+                                <child>
+                                    <object class="AdwViewStackPage" id="page_countries">
+                                        <property name="name">page_countries</property>
+                                        <property name="title">Countries</property>
+                                        <property name="icon-name">network-workgroup-symbolic</property>
+                                        <property name="child">
+                                            <object class="GtkBox">
+                                                <property name="orientation">vertical</property>
+                                                <child>
+                                                    <object class="AdwClamp" id="clamp_countries">
+                                                        <property name="maximum-size">800</property>
+                                                        <property name="tightening-threshold">500</property>
+                                                        <property name="margin-start">80</property>
+                                                        <property name="margin-end">80</property>
+                                                        <property name="margin-top">50</property>
+                                                        <property name="margin-bottom">0</property>
+                                                        <child>
+                                                            <!-- List Box -->
+                                                            <object class="GtkScrolledWindow">
+                                                                <child>
+                                                                    <object class="GtkListBox" id="list_countries">
+                                                                        <property name="vexpand">true</property>
+                                                                        <property name="selection-mode">none</property>
+                                                                        <style>
+                                                                            <class name="boxed-list"/>
+                                                                        </style>
+                                                                        <!-- children will be added programmatically -->
+                                                                    </object>
+                                                                </child>
+                                                            </object>
+                                                        </child>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </property>
+                                    </object>
+                                </child>
+
+                                <!-- Settings Page -->
+                                <child>
+                                    <object class="AdwViewStackPage" id="page_settings">
+                                        <property name="name">page_settings</property>
+                                        <property name="title">Settings</property>
+                                        <property name="icon-name">preferences-system-symbolic</property>
+                                        <property name="child">
+                                            <object class="GtkBox">
+                                                <property name="orientation">vertical</property>
+                                                <child>
+                                                    <object class="AdwBanner" id="banner_settings_connected">
+                                                        <property name="title">&lt;span weight='ultralight'&gt;Please disconnect first. Then come back here to edit settings.&lt;/span&gt;</property>
+                                                        <property name="revealed">true</property>
+                                                        <property name="use-markup">true</property>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="AdwClamp" id="clamp_settings">
+                                                        <property name="maximum-size">800</property>
+                                                        <property name="tightening-threshold">500</property>
+                                                        <property name="margin-start">80</property>
+                                                        <property name="margin-end">80</property>
+                                                        <property name="margin-top">50</property>
+                                                        <property name="margin-bottom">0</property>
+                                                        <child>
+                                                            <!-- Settings Expander -->
+                                                            <object class="GtkScrolledWindow">
+                                                                <child>
+                                                                    <object class="GtkListBox" id="list_settings">
+                                                                        <property name="vexpand">true</property>
+                                                                        <style>
+                                                                            <class name="boxed-list"/>
+                                                                        </style>
+
+                                                                        <!-- Connection Settings -->
+                                                                        <child>
+                                                                            <object class="AdwExpanderRow" id="settings_connection">
+                                                                                <property name="title">Connection</property>
+                                                                                <property name="subtitle">Set VPN technology, connection protocol, and more.</property>
+                                                                                <property name="icon-name">insert-link-symbolic</property>
+                                                                                <property name="expanded">true</property>
+                                                                                <property name="sensitive">False</property>
+
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="connection_technology">
+                                                                                        <property name="title">Technology</property>
+                                                                                        <property name="subtitle">Select the VPN technology to use.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="cmb_technology_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkComboBoxText" id="cmb_technology">
+                                                                                                <property name="width-request">200</property>
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">10</property>
+                                                                                                <property name="margin-bottom">10</property>
+                                                                                                    <items>
+                                                                                                        <item>NordLynx</item>
+                                                                                                        <item>OpenVPN</item>
+                                                                                                    </items>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="connection_protocol">
+                                                                                        <property name="title">Protocol</property>
+                                                                                        <property name="subtitle">Pick a protocol to use for your connection.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="cmb_protocol_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkComboBoxText" id="cmb_protocol">
+                                                                                                <property name="width-request">200</property>
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">10</property>
+                                                                                                <property name="margin-bottom">10</property>
+                                                                                                <items>
+                                                                                                    <item>TCP</item>
+                                                                                                    <item>UDP</item>
+                                                                                                </items>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="connection_ipvsix">
+                                                                                        <property name="title">IPv6</property>
+                                                                                        <property name="subtitle">Enable support for IPv6.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="sw_ipvsix_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkSwitch" id="sw_ipvsix">
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">12</property>
+                                                                                                <property name="margin-bottom">12</property>
+                                                                                                <property name="active">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="connection_obfuscate">
+                                                                                        <property name="title">Obfuscate</property>
+                                                                                        <property name="subtitle">Obfuscate traffic to bypass network/firewall restrictions.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="sw_obfuscate_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkSwitch" id="sw_obfuscate">
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">12</property>
+                                                                                                <property name="margin-bottom">12</property>
+                                                                                                <property name="active">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="connection_autoconnect">
+                                                                                        <property name="title">Auto-Connect</property>
+                                                                                        <property name="subtitle">Auto-connect when using untrusted networks.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="sw_autoconnect_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkSwitch" id="sw_autoconnect">
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">12</property>
+                                                                                                <property name="margin-bottom">12</property>
+                                                                                                <property name="active">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                            </object>
+                                                                        </child>
+
+                                                                        <!-- Security Settings -->
+                                                                        <child>
+                                                                            <object class="AdwExpanderRow" id="settings_security">
+                                                                                <property name="title">Security</property>
+                                                                                <property name="subtitle">Firewall and other cyber-security related settings.</property>
+                                                                                <property name="icon-name">security-high-symbolic</property>
+                                                                                <property name="expanded">true</property>
+                                                                                <property name="sensitive">False</property>
+
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="security_tpl">
+                                                                                        <property name="title">Threat Protection</property>
+                                                                                        <property name="subtitle">Enable to block suspicious websites or malware traffic.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="sw_tpl_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkSwitch" id="sw_tpl">
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">12</property>
+                                                                                                <property name="margin-bottom">12</property>
+                                                                                                <property name="active">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="security_firewall">
+                                                                                        <property name="title">Firewall</property>
+                                                                                        <property name="subtitle">Enable to use the built-in firewall.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="sw_firewall_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkSwitch" id="sw_firewall">
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">12</property>
+                                                                                                <property name="margin-bottom">12</property>
+                                                                                                <property name="active">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="security_killswitch">
+                                                                                        <property name="title">Killswitch</property>
+                                                                                        <property name="subtitle">Enable to block all traffic in case the VPN connection is lost.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="sw_killswitch_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkSwitch" id="sw_killswitch">
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">12</property>
+                                                                                                <property name="margin-bottom">12</property>
+                                                                                                <property name="active">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                            </object>
+                                                                        </child>
+
+                                                                        <!-- Other Settings -->
+                                                                        <child>
+                                                                            <object class="AdwExpanderRow" id="settings_other">
+                                                                                <property name="title">Other Settings</property>
+                                                                                <property name="subtitle">Additional NordVPN settings.</property>
+                                                                                <property name="icon-name">preferences-other-symbolic</property>
+                                                                                <property name="expanded">true</property>
+                                                                                <property name="sensitive">False</property>
+
+                                                                                <child>
+                                                                                    <object class="AdwActionRow" id="other_analytics">
+                                                                                        <property name="title">Analytics</property>
+                                                                                        <property name="subtitle">When enabled NordVPN send anonymized statistics.</property>
+                                                                                        <child type="prefix">
+                                                                                            <object class="GtkSpinner" id="sw_analytics_spinner">
+                                                                                                <property name="spinning">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                        <child type="suffix">
+                                                                                            <object class="GtkSwitch" id="sw_analytics">
+                                                                                                <property name="margin-end">10</property>
+                                                                                                <property name="margin-top">12</property>
+                                                                                                <property name="margin-bottom">12</property>
+                                                                                                <property name="active">false</property>
+                                                                                            </object>
+                                                                                        </child>
+                                                                                    </object>
+                                                                                </child>
+                                                                            </object>
+                                                                        </child>
+                                                                    </object>
+                                                                </child>
+                                                            </object>
+                                                        </child>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <!-- Switcher Bar -->
+                        <child>
+                            <object class="AdwViewSwitcherBar">
+                                <property name="stack">view_stack</property>
+                                <property name="reveal" bind-source="view_switcher" bind-property="title-visible" bind-flags="default"/>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+    <menu id="primary_menu">
+        <section>
+            <item>
+                <attribute name="label">_About</attribute>
+                <attribute name="action">app.about</attribute>
+            </item>
+            <item>
+                <attribute name="label">_Preferences</attribute>
+                <attribute name="action">app.preferences</attribute>
+            </item>
+            <item>
+                <attribute name="label">_Quit</attribute>
+                <attribute name="action">app.quit</attribute>
+            </item>
+        </section>
+    </menu>
+</interface>
