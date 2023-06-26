@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:grid x="0" y="0" width="15.652" height="15.652"/>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="260.432" cy="428.258" r="234.78" id="gradient-0" gradientTransform="matrix(1, 0, 0, 1.035554, 0, -15.22596)">
+      <stop offset="0" style="stop-color: rgb(57, 127, 176);"/>
+      <stop offset="1" style="stop-color: rgb(12, 66, 105);"/>
+    </radialGradient>
+    <bx:guide x="251.547" y="250.049" angle="90"/>
+    <bx:guide x="251.546" y="250.048" angle="0"/>
+  </defs>
+  <rect style="paint-order: fill; fill: url(#gradient-0); stroke: rgb(57, 127, 176); stroke-width: 0px;" x="15.652" y="15.652" width="469.56" height="469.56" rx="40" ry="40"/>
+  <g id="ic-places-mountains" transform="matrix(1.643148, 0, 0, 2.128388, 43.40099, 66.398491)" style="">
+    <path class="cls-1" d="M 88.217 91.799 L 149.042 6.668 C 150.043 5.208 152.198 5.208 153.198 6.668 L 249.411 163.455 C 250.477 165.074 249.391 167.24 247.456 167.355 C 247.394 167.358 247.332 167.36 247.27 167.359 L 138.59 167.359" style="fill: none; fill-rule: evenodd; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke: rgb(57, 127, 176); stroke-width: 25px; stroke-opacity: 0.1;"/>
+    <path class="cls-1" d="M 48.422 94.695 L 2.582 163.455 C 1.516 165.074 2.602 167.24 4.537 167.355 C 4.599 167.358 4.661 167.36 4.723 167.359 L 102.825 167.359 C 104.761 167.263 105.869 165.108 104.818 163.478 C 104.785 163.427 104.75 163.377 104.714 163.329 L 52.452 94.569 C 51.403 93.257 49.387 93.32 48.422 94.695 Z" style="fill: none; fill-rule: evenodd; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke: rgb(57, 127, 176); stroke-width: 25px; stroke-opacity: 0.1;"/>
+  </g>
+  <path id="circle860" class="cls-1" d="M 323.01 277.034 C 315.69 310.657 294.831 339.774 265.352 357.525" style="fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 12px; stroke: rgb(255, 255, 255);"/>
+  <path id="path932" class="cls-1" d="M 136.973 357.525 C 54.353 308.327 55.976 188.139 139.892 141.188 C 210.662 101.594 299.811 138.878 321.322 217.065 C 321.944 219.286 322.566 221.595 323.01 223.905" style="fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 12px; stroke: rgb(255, 255, 255);"/>
+  <circle id="path866" class="cls-1" cx="201.028" cy="250.469" r="35.093" style="fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 12px; stroke: rgb(255, 255, 255);"/>
+  <path id="path864" class="cls-1" d="M 273.969 277.034 C 253.451 333.25 179.772 346.172 141.348 300.296 C 102.923 254.42 128.57 184.151 187.512 173.811 C 224.619 167.302 261.052 188.338 273.969 223.727 L 422.604 223.727 L 422.604 277.034 L 394.619 277.034 L 394.619 338.336 L 340.335 338.336 L 340.335 277.034 L 273.969 277.034 Z" style="fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 12px; stroke: rgb(255, 255, 255);"/>
+</svg>
