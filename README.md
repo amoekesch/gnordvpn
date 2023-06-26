@@ -1,3 +1,6 @@
+> **Note**
+> This application was developed specifically for the GNOME desktop environment. A version suited for KDE built in C++/QT can be found here: [Kompass](https://github.com/amoekesch/Kompass).
+
 # GNordVPN
 
 GNordVPN - Open-source graphical NordVPN client for Linux written in Python using GTK4 and Libadwaita.
