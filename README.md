@@ -5,7 +5,7 @@
 
 GNordVPN - Open-source graphical NordVPN client for Linux written in Python using GTK4 and Libadwaita.
 
-![GNordVPN Connected](https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/connected.png)
+![GNordVPN Connected](https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/connected.png)
 
 ## Table of Contents
 
@@ -34,10 +34,10 @@ to use this application.
 ## Features
 
 * Connect to NordVPN
-  * Servers by <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/countries.png">Country</a>
-  * Servers by <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/groups.png">Category/Group</a>
-  * <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/connected.png">Fastest</a> (as suggested by NordVPN)
-* Supports all common <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/settings.png">NordVPN settings</a> available on Linux
+  * Servers by <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/countries.png">Country</a>
+  * Servers by <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/groups.png">Category/Group</a>
+  * <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/connected.png">Fastest</a> (as suggested by NordVPN)
+* Supports all common <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/settings.png">NordVPN settings</a> available on Linux
   * Technology and Protocol
   * Threat Protection
   * KillSwitch
@@ -53,11 +53,11 @@ to use this application.
 
 **GNordVPN is easy to use.** Select either a specific VPN server type, a country to connect to, or put your fate in the hands of NordVPN and let it decide what is the fastest server to use. Toggle the *Connect* switch and that's it.
 
-![GNordVPN Disconnected](https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/disconnected.png)
+![GNordVPN Disconnected](https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/disconnected.png)
 
 As soon as GNordVPN could establish a connection with a VPN server, the user interface will show the connection status and additional connection details:. To *Disconnect* toggle that switch once more and GNordVPN will disconnect you from the VPN.
 
-![GNordVPN Connected](https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/connected.png)
+![GNordVPN Connected](https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/connected.png)
 
 ## Installation
 
@@ -65,7 +65,7 @@ An easy-to-install package is **in the works**. Come back soon for more!
 
 ## Gallery
 
-<a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/disconnected.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/disconnected.png" width="18%"></img></a> <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/connected.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/connected.png" width="18%"></img></a> <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/groups.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/groups.png" width="18%"></img></a> <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/countries.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/countries.png" width="18%"></img></a> <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/settings.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/resources/doc/settings.png" width="18%"></img></a>
+<a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/disconnected.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/disconnected.png" width="18%"></img></a> <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/connected.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/connected.png" width="18%"></img></a> <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/groups.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/groups.png" width="18%"></img></a> <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/countries.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/countries.png" width="18%"></img></a> <a target="_blank" href="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/settings.png"><img src="https://github.com/amoekesch/gnordvpn/raw/master/src/resources/doc/settings.png" width="18%"></img></a>
 
 ## Dependencies
 
