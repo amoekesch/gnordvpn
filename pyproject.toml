@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "GNordVPN"
+version = "0.0.1"
+description = "GNordVPN - Open-source graphical NordVPN client for Linux written in Python using GTK4 and Libadwaita."
+keywords = ["vpn", "nordvpn", "network", "gui", "linux", "gtk4", "libadwaita", "adw", "adwaita"]
+authors = [{name = "Andreas Moekesch"}]
+dependencies = ["PyGObject", "adw", "pycairo", "appdirs"]
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+readme = "README.md"
+
+[project.urls]
+repository = "https://github.com/amoekesch/gnordvpn"

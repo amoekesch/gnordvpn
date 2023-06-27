@@ -1,8 +1,6 @@
 import subprocess
 import re
 
-import data.nordvpnexception as vpnex
-
 
 class NordVPN:
     REQUIRED_VERSION = 3.16
