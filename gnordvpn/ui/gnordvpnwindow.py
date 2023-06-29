@@ -101,13 +101,7 @@ class GNordVPNWindow(Adw.ApplicationWindow):
     def __init__(self, title, **kwargs):
         super().__init__(**kwargs)
 
-        # check binary and user first
-        if self._init_binary() and self._init_user():
-            self._init_ui(title)
-        else:
-            return
-
-        # reguster status daemon
+        self._init_ui(title)
         if self._init_status_daemon():
             self._init_settings()
 
@@ -132,11 +126,6 @@ class GNordVPNWindow(Adw.ApplicationWindow):
         self.handle_sw_killswitch = self.sw_killswitch.connect("state-set", self.save_settings, cfg.set_killswitch, self.sw_killswitch_spinner, True)
         self.handle_sw_autoconnect = self.sw_autoconnect.connect("state-set", self.save_settings, cfg.set_autoconnect, self.sw_autoconnect_spinner, True)
         self.handle_sw_analytics = self.sw_analytics.connect("state-set", self.save_settings, cfg.set_analytics, self.sw_analytics_spinner, True)
-
-        # load server groups and countries
-        vpn = nordvpn.NordVPN()
-        self._init_categories(vpn)
-        self._init_countries(vpn)
 
         # handle button states
         self.btn_connect.set_sensitive(False)
@@ -237,6 +226,11 @@ class GNordVPNWindow(Adw.ApplicationWindow):
 
     def _init_status_daemon(self) -> bool:
         if self._init_binary() and self._init_user():
+            # load server groups and countries
+            vpn = nordvpn.NordVPN()
+            self._init_categories(vpn)
+            self._init_countries(vpn)
+
             # create a status monitor
             daemon = threading.Thread(target=self._status_monitor, daemon=True)
             daemon.start()
