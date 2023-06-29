@@ -46,7 +46,7 @@ class NordVPN:
     def list_countries(self) -> list:
         countries = []
         stdout = subprocess.run(["nordvpn", "countries"], capture_output=True, text=True).stdout.strip()
-        country_list = re.split(r"[ ]{1,}|\n", stdout, flags=re.MULTILINE)
+        country_list = re.split(r"[\s|\,]{1,}", stdout, flags=re.MULTILINE)
         for country in sorted(country_list):
             if len(country.strip()) > 1:
                 countries.append(country.replace(",", "").strip())
@@ -57,7 +57,7 @@ class NordVPN:
     def list_groups(self) -> list:
         groups = []
         stdout = subprocess.run(["nordvpn", "groups"], capture_output=True, text=True).stdout.strip()
-        group_list = re.split(r"[ ]{1,}|\n", stdout, flags=re.MULTILINE)
+        group_list = re.split(r"[\s|\,]{1,}", stdout, flags=re.MULTILINE)
         for group in sorted(group_list):
             if len(group.strip()) > 1:
                 groups.append(group.replace(",", "").strip())

@@ -1,11 +1,7 @@
+import os
 import gi
 import threading
 import time
-import data.connection as cn
-import data.user as user
-import data.nordvpn as nordvpn
-import data.nordvpnsettings as settings
-import data.nordvpnexception as vpnex
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
@@ -13,19 +9,26 @@ gi.require_version('Adw', '1')
 from gi.repository import Adw
 from gi.repository import Gtk
 from gi.repository import GdkPixbuf
+from gnordvpn.data import connection as cn
+from gnordvpn.data import user as user
+from gnordvpn.data import nordvpn as nordvpn
+from gnordvpn.data import nordvpnsettings as settings
+from gnordvpn.data import nordvpnexception as vpnex
 
 
-@Gtk.Template(filename="./ui/gnordvpnwindow.ui")
+@Gtk.Template(filename=os.path.dirname(__file__) + "/gnordvpnwindow.ui")
 class GNordVPNWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'GNordVPNWindow'
 
     # define icons
-    pixbuf_img_insecure = GdkPixbuf.Pixbuf.new_from_file_at_scale("./resources/icons/gnordvpn-insecure.svg", 128, 128, True)
-    pixbuf_img_secure = GdkPixbuf.Pixbuf.new_from_file_at_scale("./resources/icons/gnordvpn-secure.svg", 128, 128, True)
-    pixbuf_img_uptime = GdkPixbuf.Pixbuf.new_from_file_at_scale("./resources/icons/gnordvpn-uptime.svg", 128, 128, True)
-    pixbuf_img_upload = GdkPixbuf.Pixbuf.new_from_file_at_scale("./resources/icons/gnordvpn-upload.svg", 128, 128, True)
-    pixbuf_img_download = GdkPixbuf.Pixbuf.new_from_file_at_scale("./resources/icons/gnordvpn-download.svg", 128, 128, True)
-    pixbuf_img_host = GdkPixbuf.Pixbuf.new_from_file_at_scale("./resources/icons/gnordvpn-host.svg", 128, 128, True)
+    script_dir = os.path.dirname(__file__)
+    img_dir = os.path.join(script_dir, "../resources/icons/")
+    pixbuf_img_insecure = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_dir + "gnordvpn-insecure.svg", 128, 128, True)
+    pixbuf_img_secure = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_dir + "gnordvpn-secure.svg", 128, 128, True)
+    pixbuf_img_uptime = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_dir + "gnordvpn-uptime.svg", 128, 128, True)
+    pixbuf_img_upload = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_dir + "gnordvpn-upload.svg", 128, 128, True)
+    pixbuf_img_download = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_dir + "gnordvpn-download.svg", 128, 128, True)
+    pixbuf_img_host = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_dir + "gnordvpn-host.svg", 128, 128, True)
 
     # toasts and banners
     toast_overlay = Gtk.Template.Child()

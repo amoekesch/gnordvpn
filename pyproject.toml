@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=65", "wheel"]
+requires = ["setuptools>=65", "setuptools-scm" ]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -15,3 +15,6 @@ readme = "README.md"
 
 [project.urls]
 repository = "https://github.com/amoekesch/gnordvpn"
+
+[project.scripts]
+gnordvpn = "gnordvpn.__main__:main"

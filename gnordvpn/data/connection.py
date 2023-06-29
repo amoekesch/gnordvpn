@@ -1,6 +1,7 @@
 import subprocess
-import data.connectionstatus as cs
-import data.nordvpnexception  as vpnex
+
+from gnordvpn.data import connectionstatus as cs
+from gnordvpn.data import nordvpnexception  as vpnex
 
 
 class Connection:

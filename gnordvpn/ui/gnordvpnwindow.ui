@@ -176,6 +176,12 @@
                                                                                 <property name="hexpand">true</property>
                                                                             </object>
                                                                         </child>
+                                                                        <child>
+                                                                            <object class="GtkSpinner">
+                                                                                <!-- just a placeholder to even out the label -->
+                                                                                <property name="spinning">false</property>
+                                                                            </object>
+                                                                        </child>
                                                                     </object>
                                                                 </child>
                                                             </object>
