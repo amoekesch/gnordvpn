@@ -8,7 +8,7 @@ version = "0.0.1"
 description = "GNordVPN - Open-source graphical NordVPN client for Linux written in Python using GTK4 and Libadwaita."
 keywords = ["vpn", "nordvpn", "network", "gui", "linux", "gtk4", "libadwaita", "adw", "adwaita"]
 authors = [{name = "Andreas Moekesch"}]
-dependencies = ["pycairo"]
+dependencies = ["pycairo>=1.19.2"]
 license = {file = "LICENSE"}
 requires-python = ">=3.9"
 readme = "README.md"
