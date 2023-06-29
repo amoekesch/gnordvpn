@@ -100,7 +100,14 @@ class GNordVPNWindow(Adw.ApplicationWindow):
 
     def __init__(self, title, **kwargs):
         super().__init__(**kwargs)
-        self._init_ui(title)
+
+        # check binary and user first
+        if self._init_binary() and self._init_user():
+            self._init_ui(title)
+        else:
+            return
+
+        # reguster status daemon
         if self._init_status_daemon():
             self._init_settings()
 
