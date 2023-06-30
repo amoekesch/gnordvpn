@@ -1,5 +1,6 @@
 import sys
 import gi
+import setproctitle
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
@@ -20,7 +21,8 @@ class GNordVPNApplication(Adw.Application):
     def __init__(self):
         super().__init__(application_id=self.APP_ID, flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
         GLib.set_application_name(self.APP_NAME)
-        GLib.set_prgname(self.APP_ID)
+        GLib.set_prgname(self.APP_NAME.lower())
+        setproctitle.setproctitle("GNordVPN")
 
         # init properties
         self._window = None
