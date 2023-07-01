@@ -1,0 +1,29 @@
+* Sat, Jul 01 2023 Andreas Moekesch - 0.1.2
+- Added Fedora RPM release package
+- Added Ubuntu DEB release package
+- Added build Shell Script
+
+* Sat, Jul 01 2023 Andreas Moekesch - 0.1.1
+- Updated dependencies
+- Added build tool (briefcase)
+
+* Fri, Jun 30 2023 Andreas Moekesch - 0.1.0
+- Initial release build
+
+* Wed, Jun 14 2023 Andreas Moekesch - 0.0.1
+- Added settings panel
+
+* Wed, Jun 07 2023 Andreas Moekesch - 0.0.4
+- Added login from GNordVPN directly via URL
+
+* Tue, Jun 06 2023 Andreas Moekesch - 0.0.3
+- Added startup validations to check NordVPN binary
+- Added startup validations to check NordVPN version
+- Added startup validations to check user account
+
+* Fri, May 26 2023 Andreas Moekesch - 0.0.2
+- Added support for server groups/categories
+- Added support for servers by country
+
+* Thu, May 25 2023 Andreas Moekesch - 0.0.1
+- Basic connect/disconnect
