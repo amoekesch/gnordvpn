@@ -57,7 +57,15 @@ As soon as GNordVPN could establish a connection with a VPN server, the user int
 
 ## Installation
 
-An easy-to-install package is **in the works**. Come back soon for more!
+* 64-bit Fedora/RPM
+  * Download the [latest release](https://github.com/amoekesch/gnordvpn/releases/latest)
+  * Switch to your download folder
+  * Install using yum or dnf
+    ```shell
+    $ sudo dnf install ./gnordvpn*.rpm
+    ```
+* 64-bit Ubuntu/DEB - **Coming soon** 
+* AppImage - **Coming soon**
 
 ## Gallery
 
