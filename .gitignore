@@ -82,5 +82,6 @@ venv.bak/
 .idea/**/gradle.xml
 .idea/**/libraries
 
-# Open items Lists
-TODO.md
+# Open items lists and notes
+TODO
+NOTES
