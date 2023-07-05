@@ -15,7 +15,7 @@ from gnordvpn.ui import gnordvpnabout as about
 class GNordVPNApplication(Adw.Application):
     APP_ID = "de.moekesch.gnordvpn"
     APP_NAME = "GNordVPN"
-    APP_VERSION = "0.0.1"
+    APP_VERSION = "0.1.2"
 
 
     def __init__(self):
